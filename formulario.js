@@ -42,7 +42,7 @@ function validarFormulario() {
     var month = document.getElementById('element_3_1');
     var day = document.getElementById('element_3_2');
     var year = document.getElementById('element_3_3');
-    var dateFormulario = day.value + "/" + month.value + "/" + year.value;
+    var dateFormulario = month.value  + "/" + day.value  + "/" + year.value;
     var hoy = new Date();
     var dd = hoy.getDate();
     var mm = hoy.getMonth()+1; //hoy es 0!
@@ -58,7 +58,7 @@ function validarFormulario() {
 
 
     var x=fecha2MayorFecha1(dateFormulario,fechaActual);
-    alert(x);
+
 
 
 
@@ -125,12 +125,14 @@ function validarFormulario() {
         month.style.borderColor = "red";
         year.style.borderColor = "red";
         todo_correcto = false;
+        alert("Fecha nacimiento mayor que la fecha actual");
     }
     if (!validaFechaDDMMAAAA(dateFormulario)) {
         day.style.borderColor = "red";
         month.style.borderColor = "red";
         year.style.borderColor = "red";
         todo_correcto = false;
+
     }
 
     if (!todo_correcto) {
@@ -146,7 +148,7 @@ function validarFormulario() {
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-// FUNCION VALIDAR FORMULARIO
+// FUNCION VALIDAR FECHA FORMULARIO
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,31 +233,15 @@ function validaFechaDDMMAAAA(fecha){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-function fecha2MayorFecha1(fecha1,fecha2){
-    var f1 = fecha1.split("/");
+function fecha2MayorFecha1(fechaFinal,fechaFormulario){
 
-    var dia = f1[0];
-    var mes = f1[1];
-    var ano = f1[2];
-    var f_1=dia + mes + ano;
-
-    var f2 = fecha2.split("/");
-    var dia2 = f2[0];
-    var mes2 = f2[1];
-    var ano2 = f2[2];
-
-    var f_2=dia2 + mes2 + ano2;
-
-    var fecha1=parseInt(f_1);
-    var fecha2=parseInt(f_2);
+        if((Date.parse(fechaFormulario)) >= (Date.parse(fechaFinal))) {
+            return true;
+        }else{
+                return false;
+            }
 
 
-
-    if(fecha2 >= fecha1){
-        return true;
-    }else{
-        return false;
-    }
 
 
 
