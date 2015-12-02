@@ -168,7 +168,7 @@ function validarFormulario() {
     if (!todo_correcto) {
         alert('Los campos en rojo no estan correctos, vuelva a revisarlos');
     }
-
+    alert("Formulario Enviado con exito");
     return todo_correcto;
 
 
