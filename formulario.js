@@ -44,6 +44,7 @@ function validarFormulario() {
     var email = document.getElementById('element_6');
     var month = document.getElementById('element_3_1');
     var day = document.getElementById('element_3_2');
+
     var year = document.getElementById('element_3_3');
     var dateFormulario = month.value  + "/" + day.value  + "/" + year.value;
     var hoy = new Date();
@@ -58,7 +59,6 @@ function validarFormulario() {
         mm='0'+mm
     }
     var fechaActual = mm+'/'+dd+'/'+yyyy;
-
 
     var x=fecha2MayorFecha1(dateFormulario,fechaActual);
 
@@ -165,10 +165,10 @@ function validarFormulario() {
 
     }
 
-    if (!todo_correcto) {
+    if (todo_correcto==false) {
         alert('Los campos en rojo no estan correctos, vuelva a revisarlos');
     }
-    alert("Formulario Enviado con exito");
+
     return todo_correcto;
 
 
