@@ -85,18 +85,21 @@ window.onload = function(){
     var palmaresPantani=document.getElementById("palmaresPantani");
     var imagenPalmares=document.getElementById("imagenPalmares");
     var imagenPantani=document.getElementById("imagenPantani");
+    var interval;
 
     botonPantani.onmouseover=function(){
         palmaresPantani.className="visible";
         palmaresPantani.className="colocarDerecha";
         rotarImagenesPantani();
        imagenPantani.className="resaltarPantani";
-        setInterval(rotarImagenesPantani,5000);// Indicamos que cada 5 segundos cambie la imagen
+
+        interval=setInterval(rotarImagenesPantani,5000);// Indicamos que cada 5 segundos cambie la imagen
     }
 
     botonPantani.onmouseout=function(){
         palmaresPantani.className="oculto";
         imagenPantani.className="imagenesCiclistas";
+        clearInterval(interval);
     }
 
 
@@ -112,12 +115,13 @@ window.onload = function(){
         palmaresCOntador.className="colocarDerecha";
         rotarImagenesContador();
         imagenContador.className="resaltarPantani";
-        setInterval(rotarImagenesContador,5000);// Indicamos que cada 5 segundos cambie la imagen
+        interval=setInterval(rotarImagenesContador,5000);// Indicamos que cada 5 segundos cambie la imagen
     }
 
     botonContador.onmouseout=function(){
         palmaresCOntador.className="oculto";
         imagenContador.className="imagenesCiclistas";
+        clearInterval(interval);
     }
 
 
@@ -133,12 +137,13 @@ window.onload = function(){
         palmaresIndurain.className="colocarDerecha";
         rotarImagenesIndurain();
         imagenIndurain.className="resaltarPantani";
-        setInterval(rotarImagenesIndurain,5000);// Indicamos que cada 5 segundos cambie la imagen
+        interval=setInterval(rotarImagenesIndurain,5000);// Indicamos que cada 5 segundos cambie la imagen
     }
 
     botonIndurain.onmouseout=function(){
         palmaresIndurain.className="oculto";
         imagenIndurain.className="imagenesCiclistas";
+        clearInterval(interval);
     }
 
 
