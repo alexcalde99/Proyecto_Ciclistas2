@@ -39,6 +39,9 @@ function validarFormulario() {
     var provincia = document.getElementById('element_2_4');
     var cp = document.getElementById('element_2_5');
     var pais = document.getElementById('element_2_6');
+    var tel = document.getElementById('telefono');
+    var web = document.getElementById('element_5');
+    var email = document.getElementById('element_6');
     var month = document.getElementById('element_3_1');
     var day = document.getElementById('element_3_2');
     var year = document.getElementById('element_3_3');
@@ -62,10 +65,16 @@ function validarFormulario() {
 
 
 
+
+
+
     //EXPRESIONES REGULARES
     var regexpGlobal = /^([a-z ??????]{2,60})$/i;
     var regexpDireccion = /^([a-zA-Z\d\s\-\,\#\.\+])+/;
     var regexpCodigoPostal = /^\d{5}(?:[-\s]\d{4})?$/;
+    var regexpTelefono = /(?:[+]?(?:[0-9]{1,5}|\\x28[0-9]{1,5}\\x29)[ ]?)?[0-9]{2}(?:[0-9][ ]?){6}[0-9]/;
+    var regexpWeb = /^(http?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \?=.-]*)*\/?$/;
+    var regexpEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,6 +126,27 @@ function validarFormulario() {
         pais.style.borderColor = "red";
         todo_correcto = false;
     }
+    /////////////////////////////////////////////////////////////////////////////////////////////
+// VALIDAR TELEFONO
+/////////////////////////////////////////////////////////////////////////////////////////////
+    if (!regexpTelefono.test(tel.value)) {
+        tel.style.borderColor = "red";
+        todo_correcto = false;
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// VALIDAR WEB
+/////////////////////////////////////////////////////////////////////////////////////////////
+    if (!regexpWeb.test(web.value)) {
+        web.style.borderColor = "red";
+        todo_correcto = false;
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// VALIDAR email
+/////////////////////////////////////////////////////////////////////////////////////////////
+    if (!regexpEmail.test(email.value)) {
+        email.style.borderColor = "red";
+        todo_correcto = false;
+    }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR fecha
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +172,13 @@ function validarFormulario() {
     return todo_correcto;
 
 
+
 }
+
+
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
