@@ -9,7 +9,8 @@
     <link href="style/" rel="stylesheet" type="text/css" media="screen"/>
     <script type="text/javascript" src="formulario/view.css"></script>
     <script type="text/javascript" src="JS/formulario.js"></script>
-    <script type="text/javascript" src="formulario/calendar.js"></script>
+    <script type="text/javascript" src="JS/calendar.js"></script>
+
     <link rel="stylesheet" type="text/css" href="formulario/view.css" media="all">
 </head>
 <body>
@@ -59,7 +60,7 @@
                         <ul>
 
                             <li id="li_1">
-                                <label class="description" for="element_1">Nombre </label>
+                                <label class="description">Nombre </label>
 		<span>
 			<input id="element_1_1" name="element_1_1" class="element text" maxlength="255" size="22" value=""/>
 			<label><h3>Nombre</h3></label>
@@ -70,7 +71,7 @@
 		</span>
                             </li>
                             <li id="li_2">
-                                <label class="description" for="element_2">Direccion </label>
+                                <label class="description">Direccion </label>
 
                                 <div>
                                     <input id="element_2_1" name="element_2_1" class="element text large" value=""
@@ -128,7 +129,7 @@
                                 </div>
                             </li>
                             <li id="li_3">
-                                <label class="description" for="element_3">Fecha Nacimiento(DD/MM/AAAA)</label>
+                                <label class="description">Fecha Nacimiento(DD/MM/AAAA)</label>
 		<span>
 			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_1"><h3>MES</h3></label>
@@ -141,10 +142,23 @@
 	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
 			<label for="element_3_3"><h3>AÑO</h3></label>
 		</span>
+                                <span id="calendar_3">
+			<img id="cal_img_3" class="datepicker" src="imagenes/calendar.gif" alt="Pick a date.">
+		</span>
+                                <script type="text/javascript">
+                                    Calendar.setup({
+                                        inputField	 : "element_3_3",
+                                        baseField    : "element_3",
+                                        displayArea  : "calendar_3",
+                                        button		 : "cal_img_3",
+                                        ifFormat	 : "%B %e, %Y",
+                                        onSelect	 : selectDate
+                                    });
+                                </script>
 
                             </li>
                             <li id="li_4">
-                                <label class="description" for="element_4">Telefono </label>
+                                <label class="description">Telefono </label>
                                 <span>
 	 		<input id="telefono" name="element_3_5" class="element text" size="26" maxlength="9" value="" type="text">
 

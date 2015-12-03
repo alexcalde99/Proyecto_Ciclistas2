@@ -44,12 +44,11 @@ function validarFormulario() {
     var email = document.getElementById('element_6');
     var month = document.getElementById('element_3_1');
     var day = document.getElementById('element_3_2');
-
-    var year = document.getElementById('element_3_3');
+   var year = document.getElementById('element_3_3');
     var dateFormulario = month.value  + "/" + day.value  + "/" + year.value;
     var hoy = new Date();
     var dd = hoy.getDate();
-    var mm = hoy.getMonth()+1; //hoy es 0!
+    var mm = hoy.getMonth()+1;
     var yyyy = hoy.getFullYear();
     if(dd<10) {
         dd='0'+dd
@@ -83,6 +82,8 @@ function validarFormulario() {
     if (!regexpGlobal.test(nombre.value)) {
         nombre.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        nombre.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR APELLIDO
@@ -90,6 +91,8 @@ function validarFormulario() {
     if (!regexpGlobal.test(apellido.value)) {
         apellido.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        apellido.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR Direccion
@@ -97,6 +100,8 @@ function validarFormulario() {
     if (!regexpDireccion.test(direccion.value)) {
         direccion.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        direccion.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR CIUDAD
@@ -104,6 +109,8 @@ function validarFormulario() {
     if (!regexpGlobal.test(ciudad.value)) {
         ciudad.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        ciudad.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR PROVINCIA
@@ -111,6 +118,8 @@ function validarFormulario() {
     if (!regexpGlobal.test(provincia.value)) {
         provincia.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        provincia.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR CODIGO POSTAL
@@ -118,6 +127,8 @@ function validarFormulario() {
     if (!regexpCodigoPostal.test(cp.value)) {
         cp.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        cp.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR PAIS
@@ -125,6 +136,8 @@ function validarFormulario() {
     if (pais.value == "") {
         pais.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        pais.style.borderColor = "black";
     }
     /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR TELEFONO
@@ -132,6 +145,8 @@ function validarFormulario() {
     if (!regexpTelefono.test(tel.value)) {
         tel.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        tel.style.borderColor = "black";
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR WEB
@@ -139,6 +154,8 @@ function validarFormulario() {
     if (!regexpWeb.test(web.value)) {
         web.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        web.style.borderColor = "black";
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR email
@@ -146,24 +163,28 @@ function validarFormulario() {
     if (!regexpEmail.test(email.value)) {
         email.style.borderColor = "red";
         todo_correcto = false;
+    }else{
+        email.style.borderColor = "black";
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 // VALIDAR fecha
 /////////////////////////////////////////////////////////////////////////////////////////////
-    if(fecha2MayorFecha1(fechaActual,dateFormulario)){
-        day.style.borderColor = "red";
-        month.style.borderColor = "red";
-        year.style.borderColor = "red";
-        todo_correcto = false;
-        alert("Fecha nacimiento mayor que la fecha actual");
-    }
     if (!validaFechaDDMMAAAA(dateFormulario)) {
         day.style.borderColor = "red";
         month.style.borderColor = "red";
         year.style.borderColor = "red";
         todo_correcto = false;
 
+
     }
+    if(fecha2MayorFecha1(dateFormulario,fechaActual)){
+        day.style.borderColor = "red";
+        month.style.borderColor = "red";
+        year.style.borderColor = "red";
+        todo_correcto = false;
+
+    }
+
 
     if (todo_correcto==false) {
         alert('Los campos en rojo no estan correctos, vuelva a revisarlos');
@@ -271,8 +292,10 @@ function validaFechaDDMMAAAA(fecha){
 /////////////////////////////////////////////////////////////////////////////////////////////
 function fecha2MayorFecha1(fechaFinal,fechaFormulario){
 
-        if((Date.parse(fechaFormulario)) >= (Date.parse(fechaFinal))) {
+        if((Date.parse(fechaFormulario)) <= (Date.parse(fechaFinal))) {
+            alert("fecha nacimiento mayor que la actual");
             return true;
+
         }else{
                 return false;
             }
@@ -282,7 +305,6 @@ function fecha2MayorFecha1(fechaFinal,fechaFormulario){
 
 
 }
-
 
 
 
